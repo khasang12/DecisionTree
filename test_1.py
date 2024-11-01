@@ -1,4 +1,4 @@
-from evaluation import accuracy, confusion_score, train_test_split
+from evaluation import accuracy, confusion_score, get_dir, train_test_split
 from decision_tree import DecisionTree
 from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
@@ -60,7 +60,8 @@ def scale(X):
     return X
 
 if __name__ == "__main__":
-    df = pd.read_csv("./breast-cancer.csv")
+    path = get_dir("breast-cancer.csv")
+    df = pd.read_csv(path)
     names = ['radius_mean',
     'texture_mean',
     'perimeter_mean',

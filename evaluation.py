@@ -1,5 +1,12 @@
 import numpy as np
 import pandas as pd
+import os
+
+def get_dir(file_name):
+    full_path = os.path.realpath(__file__)
+    path, filename = os.path.split(full_path)
+    dir = os.path.join(path, file_name)
+    return dir
 
 def accuracy(y_true, y_pred):
     """

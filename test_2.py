@@ -1,4 +1,4 @@
-from evaluation import accuracy, one_hot_encode, confusion_score, train_test_split
+from evaluation import accuracy, get_dir, one_hot_encode, confusion_score, train_test_split
 from decision_tree import DecisionTree
 from sklearn.tree import DecisionTreeClassifier, export_text
 import pandas as pd
@@ -62,7 +62,8 @@ def scale(X):
     return X
 
 if __name__ == "__main__":
-    df = pd.read_csv("./drug200.csv")
+    path = get_dir("drug200.csv")
+    df = pd.read_csv(path)
     df_X = df.drop('Drug', axis=1)
     df_encoded = one_hot_encode(df_X)
 
